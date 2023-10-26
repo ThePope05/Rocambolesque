@@ -51,7 +51,6 @@ class User extends BaseController
                 //if login is succesfull redirect to dashboard
                 //else send back to login page
                 if (!is_null($user)) {
-                    session_start();
                     $_SESSION['user_id'] = $user->id;
                     $this->dashboard();
                 } else {
