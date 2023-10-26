@@ -15,7 +15,7 @@ class Database
             if ($this->dbHandler) {
                 // echo "Verbinding met de database is gelukt";
             } else {
-                echo "Interne server-error";
+                echo "Internal server error";
             }
         } catch (PDOException $e) {
             echo $e->getMessage();
