@@ -1,0 +1,19 @@
+<?php
+
+class Headlinks
+{
+
+    public function __construct()
+    {
+        $element = '
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="<?= URLROOT; ?>/css/style.css">
+        ';
+
+        define('HEADLINKS', $element);
+    }
+}
+
+new Headlinks();
