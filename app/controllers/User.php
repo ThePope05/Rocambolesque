@@ -35,6 +35,39 @@ class User extends BaseController
         $this->view('/User/login', $data);
     }
 
+    public function login()
+    {
+        $data = [
+            'title' => 'Login',
+            'email' => $_POST['email'],
+            'password' => $_POST['password'],
+            'email_err' => '',
+            'password_err' => ''
+        ];
+
+        if (isset($_POST['email'])) {
+            if (isset($_POST['password'])) {
+                $user = $this->model('UserModel')->login($_POST['email'], $_POST['password']);
+                //if login is succesfull redirect to dashboard
+                //else send back to login page
+                if (!is_null($user)) {
+                    session_start();
+                    $_SESSION['user_id'] = $user->id;
+                    $this->dashboard();
+                } else {
+                    $data['password_err'] = 'Password incorrect';
+                    $this->view('/User/login', $data);
+                }
+            } else {
+                $data['password_err'] = 'Please enter password';
+                $this->view('/User/login', $data);
+            }
+        } else {
+            $data['email_err'] = 'Please enter email';
+            $this->view('/User/login', $data);
+        }
+    }
+
     public function signUpPage()
     {
         $data = [

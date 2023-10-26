@@ -9,16 +9,18 @@ class UserModel
         $this->db = new Database();
     }
 
-    //Example of a query
-    public function index(int $id)
+    public function login(string $email, string $password)
     {
-        //Here you can write your query
-        $this->db->query("SELECT * FROM TABLE_NAME WHERE id = :id");
+        $this->db->query("SELECT * FROM users WHERE email = :email");
 
-        //Here you can bind your parameters
-        $this->db->bind(':id', $id);
+        $this->db->bind(':email', $email);
 
-        //Here you can execute your query
-        return $this->db->resultSet();
+        $user = $this->db->resultSet();
+
+        if ($user->password == hash('sha256', $password)) {
+            return $user;
+        } else {
+            return null;
+        }
     }
 }

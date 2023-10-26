@@ -9,7 +9,7 @@
 <body>
     <?= NAVBAR; ?>
     <h1><?= $data['title'] ?></h1>
-    <form action="<?= URLROOT; ?>/user/login" method="post">
+    <form action="<?= URLROOT; ?>/user/signup" method="post">
         <div class="form-group">
             <label for="name">Full name</label>
             <input type="text" name='name' id="name" placeholder="John Doo" value="<?= $data['email']; ?>">
@@ -30,7 +30,7 @@
             <input type="password" name='password' id="password" placeholder="Password" value="<?= $data['password']; ?>">
             <span class="invalid-feedback"><?= $data['password_err']; ?></span> <!-- <<<<This should be hidden until innerhtml is set -->
         </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="submit" class="btn btn-primary">Sign up</button>
     </form>
 </body>
 

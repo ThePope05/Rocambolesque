@@ -20,7 +20,7 @@
             <input type="password" name='password' id="password" placeholder="Password" value="<?= $data['password']; ?>">
             <span class="invalid-feedback"><?= $data['password_err']; ?></span> <!-- <<<<This should be hidden until innerhtml is set -->
         </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="submit" class="btn btn-primary">Login</button>
     </form>
 </body>
 
