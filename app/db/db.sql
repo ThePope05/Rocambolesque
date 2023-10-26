@@ -14,11 +14,12 @@
 
 
 -- Databasestructuur van rocambolesque wordt geschreven
+DROP DATABASE IF EXISTS `rocambolesque`;
 CREATE DATABASE IF NOT EXISTS `rocambolesque` /*!40100 DEFAULT CHARACTER SET latin1 */;
 USE `rocambolesque`;
 
 -- Structuur van  tabel rocambolesque.reservation wordt geschreven
-CREATE TABLE IF NOT EXISTS `reservation` (
+CREATE TABLE IF NOT EXISTS `Reservations` (
   `Id` int(11) NOT NULL AUTO_INCREMENT,
   `AmountOfPeople` int(11) NOT NULL,
   `AmountOfChildren` int(11) NOT NULL,
@@ -28,11 +29,11 @@ CREATE TABLE IF NOT EXISTS `reservation` (
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 -- Dumpen data van tabel rocambolesque.reservation: 0 rows
-/*!40000 ALTER TABLE `reservation` DISABLE KEYS */;
-/*!40000 ALTER TABLE `reservation` ENABLE KEYS */;
+/*!40000 ALTER TABLE `Reservations` DISABLE KEYS */;
+/*!40000 ALTER TABLE `Reservations` ENABLE KEYS */;
 
 -- Structuur van  tabel rocambolesque.userreservation wordt geschreven
-CREATE TABLE IF NOT EXISTS `userreservation` (
+CREATE TABLE IF NOT EXISTS `UserReservations` (
   `Id` int(11) NOT NULL AUTO_INCREMENT,
   `UserId` tinyint(4) NOT NULL,
   `Reservation` tinyint(4) NOT NULL,
@@ -42,11 +43,11 @@ CREATE TABLE IF NOT EXISTS `userreservation` (
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 -- Dumpen data van tabel rocambolesque.userreservation: 0 rows
-/*!40000 ALTER TABLE `userreservation` DISABLE KEYS */;
-/*!40000 ALTER TABLE `userreservation` ENABLE KEYS */;
+/*!40000 ALTER TABLE `UserReservations` DISABLE KEYS */;
+/*!40000 ALTER TABLE `UserReservations` ENABLE KEYS */;
 
 -- Structuur van  tabel rocambolesque.users wordt geschreven
-CREATE TABLE IF NOT EXISTS `users` (
+CREATE TABLE IF NOT EXISTS `Users` (
   `Id` int(11) NOT NULL AUTO_INCREMENT,
   `Password` varchar(100) DEFAULT NULL,
   `Email` varchar(50) DEFAULT NULL,
@@ -59,8 +60,8 @@ CREATE TABLE IF NOT EXISTS `users` (
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 -- Dumpen data van tabel rocambolesque.users: 0 rows
-/*!40000 ALTER TABLE `users` DISABLE KEYS */;
-/*!40000 ALTER TABLE `users` ENABLE KEYS */;
+/*!40000 ALTER TABLE `Users` DISABLE KEYS */;
+/*!40000 ALTER TABLE `Users` ENABLE KEYS */;
 
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
 /*!40014 SET FOREIGN_KEY_CHECKS=IFNULL(@OLD_FOREIGN_KEY_CHECKS, 1) */;
