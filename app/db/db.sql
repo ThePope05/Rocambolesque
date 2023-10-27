@@ -67,3 +67,7 @@ CREATE TABLE IF NOT EXISTS `Users` (
 /*!40014 SET FOREIGN_KEY_CHECKS=IFNULL(@OLD_FOREIGN_KEY_CHECKS, 1) */;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40111 SET SQL_NOTES=IFNULL(@OLD_SQL_NOTES, 1) */;
+
+
+INSERT INTO `Users` (`Id`, `Password`, `Email`, `Number`, `Firstname`, `Lastname`) VALUES
+(null, '8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918', 'example@mboutrecht.nl', '0612345678', 'admin', 'admin');
