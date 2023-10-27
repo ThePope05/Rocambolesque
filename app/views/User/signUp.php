@@ -9,7 +9,7 @@
 <body>
     <?= NAVBAR; ?>
     <h1><?= $data['title'] ?></h1>
-    <form action="<?= URLROOT; ?>/user/signup" method="post">
+    <form action="/user/signup" method="post">
         <div class="form-group">
             <label for="name">Full name</label>
             <input type="text" name='name' id="name" placeholder="John Doo" value="<?= $data['email']; ?>">
