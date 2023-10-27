@@ -46,7 +46,7 @@ class Database
         $this->statement->bindValue($parameter, $value, $type);
     }
 
-    public function excecuteWithoutReturn()
+    public function executeWithoutReturn()
     {
         $this->statement->execute();
     }
