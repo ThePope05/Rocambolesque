@@ -1,15 +1,16 @@
 <?php
 session_start();
 
-require_once 'libraries/Core.php';
-require_once 'libraries/BaseController.php';
-require_once 'libraries/Database.php';
+//Require single files
 require_once 'config/config.php';
 
-//require all component files in the components folder
-$components = glob(__DIR__ . '/components/*');
+//Require all component files in the components folder
+$allFiles = glob(__DIR__ . '/components/*');
 
-foreach ($components as $component) {
+//Add all files in the libraries folder to the $allFiles array
+$allFiles = array_merge($allFiles, glob(__DIR__ . '/libraries/*.php'));
+
+foreach ($allFiles as $component) {
     require_once($component);
 }
 
