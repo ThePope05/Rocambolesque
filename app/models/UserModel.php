@@ -15,7 +15,7 @@ class UserModel
 
         $this->db->bind(':email', $email);
 
-        $user = $this->db->resultSet();
+        $user = $this->db->execute();
 
         if (isset($user[0])) {
             if ($user[0]->Password == hash('sha256', $password)) {
