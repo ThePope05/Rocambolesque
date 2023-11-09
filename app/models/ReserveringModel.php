@@ -13,12 +13,57 @@ class ReserveringModel
     public function index(int $id)
     {
         //Here you can write your query
-        $this->db->query("SELECT * FROM TABLE_NAME WHERE id = :id");
+        $this->db->query("SELECT * FROM reservations WHERE id = :id");
 
         //Here you can bind your parameters
         $this->db->bind(':id', $id);
 
         //Here you can execute your query
         return $this->db->resultSet();
+    }
+
+    public function fetchreservering(int $id)
+    {
+        $this->db->query("SELECT * FROM reservations WHERE user_id = :id");
+
+        $this->db->bind(':id', $id);
+
+        return $this->db->resultSet();
+    }
+
+    public function CreateReservation($amountofpeople, $amountofchildren, $reservationtime, $comment, $user_id)
+    {
+        $this->db->query("INSERT INTO reservations (id, AmountOfPeople, AmountOfChildren, ReservationTime, Comment, user_id) VALUES (:AmountOfPeople, :AmountOfChildren, :ReservationTime, :Comment, :user_id)");
+
+        $this->db->bind(':AmountOfPeople', $amountofpeople);
+        $this->db->bind(':AmountOfChildren', $amountofchildren);
+        $this->db->bind(':ReservationTime', $reservationtime);
+        $this->db->bind(':Comment', $comment);
+        $this->db->bind(':user_id', $user_id);
+
+        return $this->db->execute();
+    }
+
+    // also edit reservation and delete reservation
+    public function DeleteReservation($id)
+    {
+        $this->db->query("DELETE FROM reservations WHERE id = :id");
+
+        $this->db->bind(':id', $id);
+
+        return $this->db->execute();
+    }
+
+    public function EditReservation($id)
+    {
+        $this->db->query("UPDATE reservations SET AmountOfPeople = :AmountOfPeople, AmountOfChildren = :AmountOfChildren, ReservationTime = :ReservationTime, Comment = :Comment WHERE id = :id");
+
+        $this->db->bind(':id', $id);
+        $this->db->bind(':AmountOfPeople', $amountofpeople);
+        $this->db->bind(':AmountOfChildren', $amountofchildren);
+        $this->db->bind(':ReservationTime', $reservationtime);
+        $this->db->bind(':Comment', $comment);
+
+        return $this->db->execute();
     }
 }

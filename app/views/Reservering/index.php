@@ -2,16 +2,42 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/style.css">
-    <!-- $data is the variable that comes from the controller -->
-    <!-- It is a associative array -->
+    <?= HEADLINKS; ?>
     <title><?= $data['title'] ?></title>
 </head>
 
 <body>
-    
+        <?= NAVBAR; ?>
+        <div class="content">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <form action="/reservering/create" method="post">
+                             <br> 
+                             <br>
+                             <br>
+                             <label for="amount_of_people">Amount of People:</label>
+                            <input type="number" name="amount_of_people" id="amount_of_people">
+
+                            <label for="amount_of_children">Amount of Children:</label>
+                            <input type="number" name="amount_of_children" id="amount_of_children">
+
+                            <label for="reservation_time">Reservation Time:</label>
+                             <!-- date and time picker -->
+                            <input type="datetime-local" name="reservation_time" id="reservation_time">
+                            
+
+                            <label for="comment">Comment:</label>
+                            <textarea name="comment" id="comment"></textarea>
+
+
+                            <button type="submit" class="btn btn-primary">Create</button>
+                            
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
 </body>
 
 </html>
