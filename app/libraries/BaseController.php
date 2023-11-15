@@ -2,6 +2,14 @@
 
 class BaseController
 {
+    public function components($component)
+    {
+        if (file_exists('../app/views/components/' . $component . '.php')) {
+            require_once('../app/views/components/' . $component . '.php');
+        } else {
+            echo 'This part does not exist';
+        }
+    }
 
     public function view($view, $data = [])
     {

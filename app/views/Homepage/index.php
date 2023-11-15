@@ -2,12 +2,12 @@
 <html lang="en">
 
 <head>
-    <?= HEADLINKS; ?>
+    <?php $this->components('headLinks'); ?>
     <title>Home screen</title>
 </head>
 
 <body>
-    <?= NAVBAR; ?>
+    <?php $this->components('navbar'); ?>
 </body>
 
 </html>

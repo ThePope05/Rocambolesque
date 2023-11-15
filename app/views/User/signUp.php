@@ -2,12 +2,12 @@
 <html lang="en">
 
 <head>
-    <?= HEADLINKS; ?>
+    <?php $this->components('headLinks'); ?>
     <title><?= $data['title'] ?></title>
 </head>
 
 <body>
-    <?= NAVBAR; ?>
+    <?php $this->components('navbar'); ?>
     <h1><?= $data['title'] ?></h1>
     <form action="/user/signup" method="post">
         <div class="form-group">
