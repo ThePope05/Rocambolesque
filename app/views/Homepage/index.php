@@ -8,6 +8,7 @@
 
 <body>
     <?= NAVBAR; ?>
+    <img id="background-img" src="img/Restaurant1.jpg">
 </body>
 
 </html>
