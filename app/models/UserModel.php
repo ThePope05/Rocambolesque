@@ -28,11 +28,16 @@ class UserModel
 
     public function signup(string $email, string $password, string $name, string $phone_nr)
     {
-        $this->db->query("INSERT INTO users (email, password, name, phone_nr) VALUES (:email, :password, :name, :phone_nr)");
+        $full_name = explode(" ", $name);
+        $phone_nr = str_replace(" ", "", $phone_nr);
+        $phone_nr = str_replace("-", "", $phone_nr);
+
+        $this->db->query("INSERT INTO users (email, password, firstname, lastname, number) VALUES (:email, :password, :firstname, :lastname, :phone_nr)");
 
         $this->db->bind(':email', $email);
         $this->db->bind(':password', hash('sha256', $password));
-        $this->db->bind(':name', $name);
+        $this->db->bind(':firstname', $full_name[0]);
+        $this->db->bind(':lastname', $full_name[1]);
         $this->db->bind(':phone_nr', $phone_nr);
 
         $this->db->executeWithoutReturn();
