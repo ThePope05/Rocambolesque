@@ -8,11 +8,19 @@ html {
     box-sizing: border-box;
     padding: 0;
     margin: 0;
-    font-family: "Roboto Slab", serif;
+    font-family: var(--normal-font);
 }
 
 body {
     height: 100vh;
+    > #background-img{
+        position: absolute;
+        width: 100vw;
+        height: 100vh;
+        object-fit: cover;
+        object-position: center;
+        z-index: -1;
+    }
 }
 
 nav {
@@ -20,6 +28,7 @@ nav {
     height: 10%;
     display: flex;
     position: fixed;
+    background-color: white;
     border-bottom: var(--medium-brown) 5px solid;
     #navLogo {
         width: 9%;
