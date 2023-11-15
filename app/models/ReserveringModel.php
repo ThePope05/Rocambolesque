@@ -19,6 +19,6 @@ class ReserveringModel
         $this->db->bind(':id', $id);
 
         //Here you can execute your query
-        return $this->db->resultSet();
+        return $this->db->execute();
     }
 }

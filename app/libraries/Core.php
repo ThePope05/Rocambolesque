@@ -1,7 +1,7 @@
 <?php
 
- class Core
- {
+class Core
+{
     private $currentController = 'Homepage';
     private $currentMethod = 'index';
     private $params = [];
@@ -16,11 +16,10 @@
             unset($url[0]);
         }
         // We sluiten het klasse-bestand in. 
-        require_once '../app/controllers/'. $this->currentController . '.php';
+        require_once '../app/controllers/' . $this->currentController . '.php';
 
         // We maken een nieuw object van de controller klasse
         $this->currentController = new $this->currentController();
-
 
         // We gaan kijken naar het tweede gedeelte van het array $url
         if (isset($url[1])) {
@@ -30,8 +29,8 @@
             }
         }
 
-        
-        $this->params = $url ? array_values($url): [];
+
+        $this->params = $url ? array_values($url) : [];
         //var_dump($this->params);
 
         call_user_func_array([$this->currentController, $this->currentMethod], $this->params);
@@ -53,4 +52,4 @@
             return array('Homepage', 'index');
         }
     }
- }
+}

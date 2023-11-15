@@ -50,11 +50,11 @@ class User extends BaseController
                 $user = $this->model('UserModel')->login($_POST['email'], $_POST['password']);
                 //if login is succesfull redirect to dashboard
                 //else send back to login page
-                if (!is_null($user)) {
-                    $_SESSION['user_id'] = $user->id;
+                if (!is_string($user) && !is_null($user)) {
+                    $_SESSION['user_id'] = $user->Id;
                     $this->dashboard();
                 } else {
-                    $data['password_err'] = 'Password incorrect';
+                    $data['password_err'] = "Email or password incorrect";
                     $this->view('/User/login', $data);
                 }
             } else {
@@ -79,6 +79,40 @@ class User extends BaseController
             'phone_nr_err' => ''
         ];
         $this->view('/User/signUp', $data);
+    }
+
+    public function signUp()
+    {
+        $data = [
+            'title' => 'Sign up',
+            'name' => $_POST['name'],
+            'email' => $_POST['email'],
+            'password' => $_POST['password'],
+            'phone_nr' => $_POST['phone_nr'],
+            'name_err' => '',
+            'email_err' => '',
+            'password_err' => '',
+            'phone_nr_err' => ''
+        ];
+
+        if (isset($_POST['name'])) {
+            if (isset($_POST['email'])) {
+                if (isset($_POST['password'])) {
+                    if (isset($_POST['phone_nr'])) {
+                        $this->model('UserModel')->signup($_POST['email'], $_POST['password'], $_POST['name'], $_POST['phone_nr']);
+                        $this->index();
+                    } else {
+                        $data['phone_nr_err'] = 'Please enter phone number';
+                    }
+                } else {
+                    $data['password_err'] = 'Please enter password';
+                }
+            } else {
+                $data['email_err'] = 'Please enter email';
+            }
+        } else {
+            $data['name_err'] = 'Please enter name';
+        }
     }
 
     public function dashboard()
