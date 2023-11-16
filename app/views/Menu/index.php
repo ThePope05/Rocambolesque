@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <?= HEADLINKS; ?>
-    <title>Document</title>
+  <?php $this->components('headLinks') ?>
+  <title>Document</title>
 </head>
+
 <body>
-<?= NAVBAR; ?>
+  <?php $this->components('navbar') ?>
 
 <div class="Menu-foto"><img src="img/menu.jpg" alt=""></div>
 <div class="menu">
@@ -73,4 +75,5 @@
     </div>
   </div>
 </body>
+
 </html>
