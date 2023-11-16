@@ -1,13 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <?= HEADLINKS; ?>
-    <title>Document</title>
-</head>
-<body>
-<?= NAVBAR; ?>
 
-<div class="menu">
+<head>
+  <?php $this->components('headLinks') ?>
+  <title>Document</title>
+</head>
+
+<body>
+  <?php $this->components('navbar') ?>
+
+  <div class="menu">
     <div class="menu-column">
       <div class="menu-section">
         <h2>Voorgerecht</h2>
@@ -38,4 +40,5 @@
     </div>
   </div>
 </body>
+
 </html>
