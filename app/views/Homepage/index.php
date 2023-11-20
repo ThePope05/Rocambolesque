@@ -2,12 +2,21 @@
 <html lang="en">
 
 <head>
-    <?= HEADLINKS; ?>
+    <?php $this->components('headLinks'); ?>
     <title>Home screen</title>
 </head>
 
 <body>
-    <?= NAVBAR; ?>
+    <?php $this->components('navbar'); ?>
+    <div id="imgContainer">
+        <img id="background-img" src="img/Restaurant1.jpg">
+    </div>
+    <div class="Boxcontainer">
+        <h3 class="Boxtitle">Menu</h3>
+    </div>
+    <div class="Boxcontainer">
+        <h3 class="Boxtitle">Reservering</h3>
+    </div>
 </body>
 
 </html>

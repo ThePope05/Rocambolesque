@@ -2,16 +2,13 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/style.css">
-    <!-- $data is the variable that comes from the controller -->
-    <!-- It is a associative array -->
+    <?php $this->components('headLinks'); ?>
     <title><?= $data['title'] ?></title>
 </head>
 
 <body>
-    
+    <?php $this->components('navbar'); ?>
+
 </body>
 
 </html>
