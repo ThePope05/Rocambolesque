@@ -13,6 +13,7 @@
     </div>
     <div class="Boxcontainer">
         <h3 class="Boxtitle">Menu</h3>
+        <a href="/menu">Menu</a>
     </div>
     <div class="Boxcontainer">
         <h3 class="Boxtitle">Reservering</h3>
