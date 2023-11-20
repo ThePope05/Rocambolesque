@@ -15,65 +15,71 @@
       <div class="menu-section">
         <h2>Voorgerecht</h2>
         <div class="Soupe">
-          <h3>Soupe à l'Oignon Gratinee</h3>
+          <h4>Soupe à l'Oignon Gratinee</h4>
           <p>Traditionele uiensoep, gegarneerd met gegratineerde kaas en stokbrood.</p>
         </div>
         <div class="Salade">
-          <h3>Salade de Chèvre Chaud</h3>
+          <h4>Salade de Chèvre Chaud</h4>
           <p>Warme geitenkaassalade met honing, noten en frambozendressing</p>
         </div>
         <div class="Coquilles">
-          <h3>Coquilles Saint-Jacques</h3>
+          <h4>Coquilles Saint-Jacques</h4>
           <p>Gebakken sint-jakobsschelpen met een saus van boter en witte wijn</p>
         </div>
+        <hr>
       </div>
       <div class="menu-section">
+      <h2>Hoofdgerecht</h2>
       <div class="Boeuf">
-        <h3>Boeuf Bourguignon</h3>
+        <h4>Boeuf Bourguignon</h4>
         <p>Rundvlees gestoofd in rode wijn met champignons, uitjes en spek, geserveerd met aardappelpuree.</p>
       </div>
       <div class="Poulet">
-        <h3>Poulet à la Provençale</h3>
+        <h4>Poulet à la Provençale</h4>
         <p>Kipfilet in Provençaalse saus met tomaten, olijven en kruiden, geserveerd met gestoomde rijst.</p>
       </div>
       <div class="Ratatouille">
-        <h3>Ratatouille</h3>
+        <h4>Ratatouille</h4>
         <p>Een traditioneel Zuid-Frans gerecht met gestoofde groenten, zoals aubergine, courgette en paprika.</p>
       </div>
+      <hr>
       </div>
     </div>
     <div class="menu-column">
       <div class="menu-section">
+        <h2>Desert</h2>
       <div class="Creme">
-        <h3>Crème Brûlée</h3>
+        <h4>Crème Brûlée</h4>
         <p>Vanillecrème met een krokante suikerlaag</p>
       </div>
       <div class="Tarte">
-        <h3>Tarte Tatim</h3>
+        <h4>Tarte Tatim</h4>
         <p>Omgekeerde karamelappeltaart met een flinterdunne korst.</p>
       </div>
+      <hr>
       </div>
       <div class="menu-section">
         <h2>Kinder Menu</h2>
         <div class="Petite-salade">
-          <h3>Petite Salade de Fruits</h3>
+          <h4>Petite Salade de Fruits</h4>
           <p>Een kleine fruitsalade met verse seizoensvruchten.</p>
         </div>
         <div class="Plat-principal">
-          <h3>Plat Principal</h3>
+          <h4>Plat Principal</h4>
           <p>Een kleine quiche gevuld met ham en kaas, geserveerd met een tomatensalade.</p>
         </div>
         <div class="Poulet">
-          <h3>Poulet Grillé et Frites</h3>
+          <h4>Poulet Grillé et Frites</h4>
           <p>Gegrilde kipfilet met knapperige frietjes en een kleine portie groenten.</p>
         </div>
         <div class="Dessert">
-          <h3>Profiteroles au Chocolat</h3>
+          <h4>Profiteroles au Chocolat</h4>
           <p>Luchtige soesjes gevuld met vanille-ijs en overgoten met warme chocoladesaus.</p>
         </div>
+        <hr>
       </div>
     </div>
   </div>
 </body>
 
-</html>
+</html>  
