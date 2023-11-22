@@ -8,21 +8,23 @@
 
 <body>
     <?php $this->components('navbar'); ?>
-    <h1><?= $data['title'] ?></h1>
-<div class="login-form">
-    <form action="/user/login" method="post">
-        <div class="form-group">
-            <label for="email">Email address</label>
-            <input type="email" name='email' id="email" placeholder="Enter email" value="<?= $data['email']; ?>">
-            <span class="invalid-feedback"><?= $data['email_err']; ?></span> <!-- <<<<This should be hidden until innerhtml is set -->
+    <div class="login">
+        <div class="login-form">
+            <form action="/user/login" method="post">
+                <h1><?= $data['title'] ?></h1>
+                <div class="login-form-group">
+                    <input type="email" name='email' id="email" placeholder="Username" value="<?= $data['email']; ?>">
+                    <span class="invalid-feedback"><?= $data['email_err']; ?></span> <!-- <<<<This should be hidden until innerhtml is set -->
 
-            <label for="password">Password</label>
-            <input type="password" name='password' id="password" placeholder="Password" value="<?= $data['password']; ?>">
-            <span class="invalid-feedback"><?= $data['password_err']; ?></span> <!-- <<<<This should be hidden until innerhtml is set -->
+
+                    <input type="password" name='password' id="password" placeholder="Password" value="<?= $data['password']; ?>">
+                    <span class="invalid-feedback"><?= $data['password_err']; ?></span> <!-- <<<<This should be hidden until innerhtml is set -->
+                    <button type="submit" class="btn">Login</button>
+                    <p>Geen deelnemer? Registeren</p>
+                </div>
+            </form>
         </div>
-        <button type="submit" class="btn btn-primary">Login</button>
-    </form>
-</div>
+    </div>
 </body>
 
 </html>
