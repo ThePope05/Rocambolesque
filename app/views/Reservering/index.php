@@ -2,12 +2,12 @@
 <html lang="en">
 
 <head>
-    <?= HEADLINKS; ?>
+    <?php $this->components('headLinks'); ?>
     <title><?= $data['title'] ?></title>
 </head>
 
 <body>
-        <?= NAVBAR; ?>
+        <?php $this->components('navbar'); ?>
         <div class="content">
             <div class="container">
                 <div class="row">

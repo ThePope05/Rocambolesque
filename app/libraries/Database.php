@@ -56,4 +56,7 @@ class Database
         $this->statement->execute();
         return $this->statement->fetchAll(PDO::FETCH_OBJ);
     }
+    // public function resultSet(){
+        
+    // }
 }

@@ -1,0 +1,55 @@
+@use "Theme";
+
+  $section-spacing: 20px;
+  $image-width: 524px;
+  $image-height: 764px;
+
+  .Menu-foto {
+    img {
+      width: $image-width;
+      height: $image-height;
+      display: block;
+      margin-bottom: $section-spacing;
+    }
+  }
+
+  .menu {
+    display: flex;
+    flex-wrap: wrap;
+    gap: $section-spacing;
+    justify-content: center;
+
+    
+    .menu-column {
+      flex: 1;
+      border: 3px solid;
+      padding: $section-spacing; 
+
+      hr {
+        width: 60%;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 7px;
+        border-bottom: 1.5px solid #D99F6C;
+      }
+
+      .menu-section {
+        margin-bottom: $section-spacing;
+        padding: 10px;
+        line-height: 2rem;
+        text-align: center;
+
+        h2 {
+          color: #04bf9d;
+        }
+
+        h3 {
+          font-family: "Roboto Slab", serif;;
+        }
+
+        p {
+          font-size: 1rem;
+        }
+      }
+    }
+  }

@@ -2,14 +2,15 @@
 <html lang="en">
 
 <head>
-    <?= HEADLINKS; ?>
+    <?php $this->components('headLinks'); ?>
     <title><?= $data['title'] ?></title>
 </head>
 
 <body>
-    <?= NAVBAR; ?>
-    <h1><?= $data['title'] ?></h1>
+    <?php $this->components('navbar'); ?>
+    <div class=''>
     <form action="/user/signup" method="post">
+        <h1><?= $data['title'] ?></h1>
         <div class="form-group">
             <label for="name">Full name</label>
             <input type="text" name='name' id="name" placeholder="John Doo" value="<?= $data['email']; ?>">
@@ -32,6 +33,7 @@
         </div>
         <button type="submit" class="btn btn-primary">Sign up</button>
     </form>
+    </div>
 </body>
 
 </html>

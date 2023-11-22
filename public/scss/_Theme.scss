@@ -1,11 +1,16 @@
 :root {
-    --teal: #04BF9D;
-    --light-brown: #D99F6C;
-    --medium-brown: #A6633C;
-    --dark-brown: #40261D;
-    --light-grey: #F2F2F2;
-    --title-font: "Good Brush", cursive;
+    --teal: #04bf9d;
+    --light-brown: #d99f6c;
+    --medium-brown: #a6633c;
+    --dark-brown: #40261d;
+    --light-grey: #f2f2f2;
+    --title-font: GoodBrush;
     --normal-font: "Roboto Slab", serif;
+
+    @font-face {
+        font-family: GoodBrush;
+        src: url(../fonts/Good\ Brush.ttf);
+    }
 
     @media (max-width: 768px) {
         html {
@@ -46,4 +51,3 @@ h3 {
 p {
     font-size: 1rem;
 }
-

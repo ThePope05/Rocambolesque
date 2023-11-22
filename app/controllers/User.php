@@ -115,6 +115,13 @@ class User extends BaseController
         }
     }
 
+    public function logout()
+    {
+        unset($_SESSION['user_id']);
+        session_destroy();
+        $this->index();
+    }
+
     public function dashboard()
     {
         //double check if user is logged in because user can acces this url directly
