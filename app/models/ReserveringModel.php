@@ -28,13 +28,16 @@ class ReserveringModel
 
         $this->db->bind(':id', $id);
 
-        return $this->db->resultSet();
+        return $this->db->execute();
     }
 
     public function CreateReservation($amountofpeople, $amountofchildren, $reservationtime, $comment, $user_id)
     {
-        $this->db->query("INSERT INTO reservations (id, AmountOfPeople, AmountOfChildren, ReservationTime, Comment, user_id) VALUES (:AmountOfPeople, :AmountOfChildren, :ReservationTime, :Comment, :user_id)");
+        $this->db->query("INSERT INTO reservations (AmountOfPeople, AmountOfChildren, ReservationTime, Comment, user_id) VALUES (:AmountOfPeople, :AmountOfChildren, :ReservationTime, :Comment, :user_id)");
 
+        // convert to int 
+        $amountofpeople = (int)$amountofpeople;
+        $amountofchildren = (int)$amountofchildren;
         $this->db->bind(':AmountOfPeople', $amountofpeople);
         $this->db->bind(':AmountOfChildren', $amountofchildren);
         $this->db->bind(':ReservationTime', $reservationtime);
