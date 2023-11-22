@@ -8,8 +8,9 @@
 
 <body>
     <?php $this->components('navbar'); ?>
-    <h1><?= $data['title'] ?></h1>
+    <div class=''>
     <form action="/user/signup" method="post">
+        <h1><?= $data['title'] ?></h1>
         <div class="form-group">
             <label for="name">Full name</label>
             <input type="text" name='name' id="name" placeholder="John Doo" value="<?= $data['email']; ?>">
@@ -32,6 +33,7 @@
         </div>
         <button type="submit" class="btn btn-primary">Sign up</button>
     </form>
+    </div>
 </body>
 
 </html>
