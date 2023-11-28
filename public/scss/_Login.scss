@@ -2,8 +2,12 @@
 
 .loginbackground{
   width: 100%;
+  border-bottom-style: solid;
+  border-color: #A6633C;
+  border-width: 5px;
   
 }
+
 
 
 .login{
@@ -47,6 +51,21 @@
                   
                   :-moz-placeholder {
                     text-align: center;
+                  }
+                  
+                  .btn {
+                    background-color: #A6633C;
+                    /* Green */
+                    border: none;
+                    color: white;
+                    padding: 15px 32px;
+                    text-align: center;
+                    text-decoration: none;
+                    display: inline-block;
+                    font-size: 16px;
+                    margin: 4px 2px;
+                    cursor: pointer;
+                    border-radius: 10px;
                   }
             }
         }
