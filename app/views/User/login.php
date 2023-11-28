@@ -7,14 +7,14 @@
 </head>
 
 <body>
-    <nav class="navbar" ><?php $this->components('navbar'); ?></nav>
+    <nav class="navbar"><?php $this->components('navbar'); ?></nav>
     <img src="/public/img/login.png" alt="" class="loginbackground">
     <div class="login">
         <div class="login-form">
             <form action="/user/login" method="post">
                 <h1><?= $data['title'] ?></h1>
                 <div class="login-form-group">
-                    <input type="email" name='email' id="email" placeholder="Username" value="<?= $data['email']; ?>">
+                    <input type="email" name='email' id="email" placeholder="Email" value="<?= $data['email']; ?>">
                     <span class="invalid-feedback"><?= $data['email_err']; ?></span> <!-- <<<<This should be hidden until innerhtml is set -->
 
 
