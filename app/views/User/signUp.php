@@ -8,25 +8,25 @@
 
 <body>
     <?php $this->components('navbar'); ?>
-    <div class=''>
+    <div class='singup'>
     <form action="/user/signup" method="post">
         <h1><?= $data['title'] ?></h1>
-        <div class="form-group">
+        <div class="singup-form">
             <label for="name">Full name</label>
             <input type="text" name='name' id="name" placeholder="John Doo" value="<?= $data['email']; ?>">
             <span class="invalid-feedback"><?= $data['email_err']; ?></span> <!-- <<<<This should be hidden until innerhtml is set -->
         </div>
-        <div class="form-group">
+        <div class="singup-form">
             <label for="email">Email address</label>
             <input type="email" name='email' id="email" placeholder="John@example.com" value="<?= $data['email']; ?>">
             <span class="invalid-feedback"><?= $data['email_err']; ?></span> <!-- <<<<This should be hidden until innerhtml is set -->
         </div>
-        <div class="form-group">
+        <div class="singup-form">
             <label for="phone_nr">Phone number</label>
             <input type="phone" name='phone_nr' id="phone_nr" placeholder="06 - 12345678" value="<?= $data['phone_nr']; ?>">
             <span class="invalid-feedback"><?= $data['password_err']; ?></span> <!-- <<<<This should be hidden until innerhtml is set -->
         </div>
-        <div class="form-group">
+        <div class="singup-form">
             <label for="password">Password</label>
             <input type="password" name='password' id="password" placeholder="Password" value="<?= $data['password']; ?>">
             <span class="invalid-feedback"><?= $data['password_err']; ?></span> <!-- <<<<This should be hidden until innerhtml is set -->

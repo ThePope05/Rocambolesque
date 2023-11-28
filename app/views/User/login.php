@@ -7,7 +7,8 @@
 </head>
 
 <body>
-    <?php $this->components('navbar'); ?>
+    <nav class="navbar" ><?php $this->components('navbar'); ?></nav>
+    <img src="/public/img/login.png" alt="" class="loginbackground">
     <div class="login">
         <div class="login-form">
             <form action="/user/login" method="post">
