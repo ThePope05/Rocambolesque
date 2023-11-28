@@ -1,8 +1,13 @@
 @use "Theme";
 
+.loginbackground{
+  width: 100%;
+  
+}
 
 
 .login{
+    position: fixed;
     background-color: white;
     border-style: solid;
     border-color: #A6633C;
@@ -43,8 +48,6 @@
                   :-moz-placeholder {
                     text-align: center;
                   }
-
-
             }
         }
 }
