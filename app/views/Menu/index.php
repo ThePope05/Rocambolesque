@@ -1,17 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <?php $this->components('headLinks') ?>
     <title>Document</title>
 </head>
-
 <body>
     <?php $this->components('navbar') ?>
 
-    <!--<div class="Menu-foto"><img src="img/menu.jpg" alt=""></div>-->
     <div class="menu">
-        <div class="menu-column">
+    <div class="menu-column voorgerecht">
             <h2>Voorgerecht</h2>
             <div class="Soupe">
                 <h4>Soupe à l'Oignon Gratinee</h4>
@@ -30,7 +27,7 @@
             <hr>
         </div>
 
-        <div class="menu-column">
+        <div class="menu-column hoofdgerecht">
             <h2>Hoofdgerecht</h2>
             <div class="Boeuf">
                 <h4>Boeuf Bourguignon</h4>
@@ -49,8 +46,8 @@
             <hr>
         </div>
 
-        <div class="menu-column">
-            <h2>Desert</h2>
+        <div class="menu-column kinder-menu">
+            <h2>Dessert</h2>
             <div class="Creme">
                 <h4>Crème Brûlée</h4>
                 <p>Vanillecrème met een krokante suikerlaag</p>
@@ -63,7 +60,7 @@
             <hr>
         </div>
 
-        <div class="menu-column">
+        <div class="menu-column dessert">
             <h2>Kinder Menu</h2>
             <div class="Petite-salade">
                 <h4>Petite Salade de Fruits</h4>
@@ -88,5 +85,4 @@
         </div>
     </div>
 </body>
-
 </html>
