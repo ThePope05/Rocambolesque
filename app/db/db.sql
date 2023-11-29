@@ -12,6 +12,11 @@
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
+drop database rocambolesque;
+create database rocambolesque;
+
+use rocambolesque;
+
 -- Structuur van  tabel rocambolesque.reservations wordt geschreven
 CREATE TABLE IF NOT EXISTS `reservations` (
   `Id` int NOT NULL AUTO_INCREMENT,
