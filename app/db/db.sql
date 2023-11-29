@@ -46,7 +46,7 @@ CREATE TABLE IF NOT EXISTS `users` (
 -- Data exporteren was gedeselecteerd
 -- insert example data
 INSERT INTO `users` (`Id`, `Password`, `Email`, `Number`, `Firstname`, `Lastname`) VALUES
-  (1, 'admin', 'example@mboutrecht.nl', '0612345678', 'admin', 'admin');
+  (1, '8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918', 'example@mboutrecht.nl', '0612345678', 'admin', 'admin');
 
   
 
