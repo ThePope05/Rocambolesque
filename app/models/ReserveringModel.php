@@ -33,6 +33,11 @@ class ReserveringModel
 
     public function CreateReservation($amountofpeople, $amountofchildren, $reservationtime, $comment, $user_id)
     {
+
+        if (empty($amountofpeople) || empty($amountofchildren) || empty($reservationtime)) {
+            return true;
+        }
+
         $this->db->query("INSERT INTO reservations (AmountOfPeople, AmountOfChildren, ReservationTime, Comment, user_id) VALUES (:AmountOfPeople, :AmountOfChildren, :ReservationTime, :Comment, :user_id)");
 
         // convert to int 

@@ -5,13 +5,33 @@ class Reservering extends BaseController
 {
     public function index()
     {
-        $reserveringModel = $this->model('ReserveringModel')->fetchreservering($_SESSION['user_id']);
-        $data = [
-            'title' => 'Reservering',
-            'reservation' => $reserveringModel
-        ];
+        if (isset($_SESSION['user_id'])) {
+            $reserveringModel = $this->model('ReserveringModel')->fetchreservering($_SESSION['user_id']);
+            $data = [
+                'title' => 'Reservering',
+                'reservation' => $reserveringModel
+            ];
 
-        $this->view('Reservering/index', $data);
+            $this->view('Reservering/index', $data);
+        } else {
+            // show reservering page for guest users 
+            $reserveringModel = $this->model('ReserveringModel')->fetchreservering(0);
+            $data = [
+                'title' => 'Reservering',
+                'reservation' => $reserveringModel
+            ];
+
+            $this->view('Reservering/index', $data);
+        }
+    }
+
+    public function delete($id)
+    {
+        if ($this->model('ReserveringModel')->DeleteReservation($id)) {
+            die('Something went wrong');
+        } else {
+            header('location: /reservering');
+        }
     }
 
     public function createPage()
