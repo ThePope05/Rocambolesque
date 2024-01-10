@@ -25,6 +25,8 @@
                             <label for="reservation_time">Reservation Time:</label>
                              <!-- date and time picker -->
                             <input type="datetime-local" name="reservation_time" id="reservation_time">
+
+                            <div id='calendar'></div>
                             
 
                             <label for="comment">Comment:</label>

@@ -21,7 +21,7 @@
                     <input type="password" name='password' id="password" placeholder="Password" value="<?= $data['password']; ?>">
                     <span class="invalid-feedback"><?= $data['password_err']; ?></span> <!-- <<<<This should be hidden until innerhtml is set -->
                     <button type="submit" class="btn">Login</button>
-                    <p>Geen deelnemer? Registeren</p>
+                    <a href="/User/signUpPage">Geen deelnemer? Registeren</a>
                 </div>
             </form>
         </div>
