@@ -67,13 +67,27 @@ class User extends BaseController
         }
     }
 
+    public function tempUserPage()
+    {
+        $data = [
+            'title' => 'Login',
+            'phone_nr' => '',
+            'name' => '',
+            'phone_nr_err' => '',
+            'name_err' => ''
+        ];
+        $this->view('/User/tempUserSignUp', $data);
+    }
+
     public function signUpPage()
     {
         $data = [
             'title' => 'Sign up',
             'email' => '',
             'password' => '',
+            'name' => '',
             'phone_nr' => '',
+            'name_err' => '',
             'email_err' => '',
             'password_err' => '',
             'phone_nr_err' => ''
@@ -95,23 +109,40 @@ class User extends BaseController
             'phone_nr_err' => ''
         ];
 
-        if (isset($_POST['name'])) {
-            if (isset($_POST['email'])) {
-                if (isset($_POST['password'])) {
-                    if (isset($_POST['phone_nr'])) {
-                        $this->model('UserModel')->signup($_POST['email'], $_POST['password'], $_POST['name'], $_POST['phone_nr']);
-                        $this->index();
-                    } else {
-                        $data['phone_nr_err'] = 'Please enter phone number';
-                    }
-                } else {
-                    $data['password_err'] = 'Please enter password';
-                }
+        $fullname = explode(" ", $_POST['name']);
+
+        if (!isset($_POST['name']) || count($fullname) < 2) {
+            $data['name_err'] = 'Please enter your full name';
+            return $this->view('/User/signUp', $data);
+        } else {
+            if ($fullname[0] == "" || $fullname[1] == "") {
+                $data['name_err'] = 'Please enter your full name';
+                return $this->view('/User/signUp', $data);
+            }
+        }
+
+        if (!isset($_POST['email'])) {
+            $data['email_err'] = 'Please enter email';
+            return $this->view('/User/signUp', $data);
+        }
+
+        if (!$this->model('UserModel')->isFreeUser($_POST['email'], $_POST['phone_nr'])) {
+            $data['email_err'] = 'Email or phone number already in use';
+
+            return $this->view('/User/signUp', $data);
+        }
+
+        if (isset($_POST['password'])) {
+            if (isset($_POST['phone_nr'])) {
+                $this->model('UserModel')->signup($_POST['email'], $_POST['password'], $fullname, $_POST['phone_nr']);
+                return $this->index();
             } else {
-                $data['email_err'] = 'Please enter email';
+                $data['phone_nr_err'] = 'Please enter phone number';
+                return $this->view('/User/signUp', $data);
             }
         } else {
-            $data['name_err'] = 'Please enter name';
+            $data['password_err'] = 'Please enter password';
+            return $this->view('/User/signUp', $data);
         }
     }
 

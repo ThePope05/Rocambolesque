@@ -11,19 +11,19 @@
     <div id="imgContainer">
         <img id="background-img" src="img/Restaurant1.jpg">
     </div>
-    <div class="Boxcontainer">
+    <div id="Boxcontainer">
         <h3 class="Boxtitle">Menu</h3>
-        <p>bekijk ons menu <br> hier 
+        <p>Bekijk ons menu <br> hier 
         <br> <span id="arrow-icon" class="material-symbols-rounded">arrow_downward</span>
         </p>
         <a id="homeButtons" href="/menu">Menu</a>
     </div>
-    <div class="Boxcontainer">
+    <div id="BoxcontainerMargin">
         <h3 class="Boxtitle">Reservering</h3>
-        <p>U kunt hier <br> Reserveren 
+        <p>U kunt hier <br> reserveren 
         <br> <span id="arrow-icon" class="material-symbols-rounded">arrow_downward</span>
         </p>
-        <a id="homeButtons" href="/reservering">reservering</a>
+        <a id="homeButtons" href="/reservering">Reservering</a>
     </div>
 </body>
 

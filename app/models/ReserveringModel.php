@@ -28,7 +28,7 @@ class ReserveringModel
 
         $this->db->bind(':id', $id);
 
-        return $this->db->execute();
+        return $this->db->execute(true);
     }
 
     public function CreateReservation($amountofpeople, $amountofchildren, $reservationtime, $comment, $user_id)
@@ -52,7 +52,6 @@ class ReserveringModel
         return $this->db->execute();
     }
 
-    // also edit reservation and delete reservation
     public function DeleteReservation($id)
     {
         $this->db->query("DELETE FROM reservations WHERE id = :id");
@@ -62,7 +61,7 @@ class ReserveringModel
         return $this->db->execute();
     }
 
-    public function EditReservation($id)
+    public function EditReservation($id, $amountofpeople, $amountofchildren, $reservationtime, $comment, $user_id)
     {
         $this->db->query("UPDATE reservations SET AmountOfPeople = :AmountOfPeople, AmountOfChildren = :AmountOfChildren, ReservationTime = :ReservationTime, Comment = :Comment WHERE id = :id");
 
