@@ -42,6 +42,20 @@ class UserModel
         $this->db->execute();
     }
 
+    public function tempUserSignUp(string $phone_nr, array $full_name)
+    {
+        $phone_nr = str_replace(" ", "", $phone_nr);
+        $phone_nr = str_replace("-", "", $phone_nr);
+
+        $this->db->query("INSERT INTO users (firstname, lastname, number) VALUES (:firstname, :lastname, :phone_nr)");
+
+        $this->db->bind(':firstname', $full_name[0]);
+        $this->db->bind(':lastname', $full_name[1]);
+        $this->db->bind(':phone_nr', $phone_nr);
+
+        $this->db->execute();
+    }
+
     public function isFreeUser(string $email, string $phone_nr)
     {
         $sql = "SELECT * FROM users WHERE email = :email OR number = :phone_nr";

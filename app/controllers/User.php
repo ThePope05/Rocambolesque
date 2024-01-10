@@ -79,6 +79,37 @@ class User extends BaseController
         $this->view('/User/tempUserSignUp', $data);
     }
 
+    public function tempUserSignUp()
+    {
+        $data = [
+            'title' => 'Login',
+            'phone_nr' => $_POST['phone_nr'],
+            'name' => $_POST['name'],
+            'phone_nr_err' => '',
+            'name_err' => ''
+        ];
+
+        $fullname = explode(" ", $_POST['name']);
+
+        if (!isset($_POST['name']) || count($fullname) < 2) {
+            $data['name_err'] = 'Please enter your full name';
+            return $this->view('/User/tempUserSignUp', $data);
+        } else {
+            if ($fullname[0] == "" || $fullname[1] == "") {
+                $data['name_err'] = 'Please enter your full name';
+                return $this->view('/User/tempUserSignUp', $data);
+            }
+        }
+
+        if (!isset($_POST['phone_nr'])) {
+            $data['phone_nr_err'] = 'Please enter phone number';
+            return $this->view('/User/tempUserSignUp', $data);
+        }
+
+        $this->model('UserModel')->tempUserSignUp($_POST['phone_nr'], $fullname);
+        $this->view('/User/tempUserPage', $data);
+    }
+
     public function signUpPage()
     {
         $data = [
