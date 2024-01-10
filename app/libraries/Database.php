@@ -46,17 +46,33 @@ class Database
         $this->statement->bindValue($parameter, $value, $type);
     }
 
-    public function executeWithoutReturn()
+    public function execute(bool $return = false)
     {
         $this->statement->execute();
+
+        if ($return) {
+            return $this->statement->fetchAll(PDO::FETCH_OBJ);
+        }
     }
 
-    public function execute()
+    public function valueExists(string $table, string $column, string $value)
     {
-        $this->statement->execute();
-        return $this->statement->fetchAll(PDO::FETCH_OBJ);
+        $this->query("SELECT :column FROM :table WHERE :column = :value");
+
+        if ($this->statement) {
+            $this->bind(':column', $column);
+            $this->bind(':table', $table);
+            $this->bind(':value', $value);
+
+            $result = $this->execute();
+
+            if (count($result) > 0) {
+                return true;
+            } else {
+                return false;
+            }
+        } else {
+            return false;
+        }
     }
-    // public function resultSet(){
-        
-    // }
 }

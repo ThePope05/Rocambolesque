@@ -15,7 +15,7 @@ class UserModel
 
         $this->db->bind(':email', $email);
 
-        $user = $this->db->execute();
+        $user = $this->db->execute(true);
 
         if (isset($user[0])) {
             if ($user[0]->Password == hash('sha256', $password)) {
@@ -26,9 +26,8 @@ class UserModel
         } else return "Email incorrect";
     }
 
-    public function signup(string $email, string $password, string $name, string $phone_nr)
+    public function signup(string $email, string $password, array $full_name, string $phone_nr)
     {
-        $full_name = explode(" ", $name);
         $phone_nr = str_replace(" ", "", $phone_nr);
         $phone_nr = str_replace("-", "", $phone_nr);
 
@@ -40,6 +39,24 @@ class UserModel
         $this->db->bind(':lastname', $full_name[1]);
         $this->db->bind(':phone_nr', $phone_nr);
 
-        $this->db->executeWithoutReturn();
+        $this->db->execute();
+    }
+
+    public function isFreeUser(string $email, string $phone_nr)
+    {
+        $sql = "SELECT * FROM users WHERE email = :email OR number = :phone_nr";
+
+        $this->db->query($sql);
+
+        $this->db->bind(':email', $email);
+        $this->db->bind(':phone_nr', $phone_nr);
+
+        $user = $this->db->execute(true);
+
+        if (isset($user[0])) {
+            return false;
+        } else {
+            return true;
+        }
     }
 }
