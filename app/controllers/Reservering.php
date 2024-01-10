@@ -14,14 +14,24 @@ class Reservering extends BaseController
 
             $this->view('Reservering/index', $data);
         } else {
+            // show reservering page for guest users 
+            $reserveringModel = $this->model('ReserveringModel')->fetchreservering(0);   
             $data = [
-                'title' => 'Login',
-                'email' => '',
-                'password' => '',
-                'email_err' => '',
-                'password_err' => ''
+                'title' => 'Reservering',
+                'reservation' => $reserveringModel
             ];
-            $this->view('/User/login', $data);
+
+            $this->view('Reservering/index', $data);
+
+        }
+    }
+
+    public function delete($id)
+    {
+        if ($this->model('ReserveringModel')->DeleteReservation($id)) {
+            die('Something went wrong');
+        } else {
+            header('location: /reservering');
         }
     }
 
@@ -44,7 +54,10 @@ class Reservering extends BaseController
             'user_id' => $_SESSION['user_id']
         ];
 
-        $this->model('ReserveringModel')->CreateReservation($data['amount_of_people'], $data['amount_of_children'], $data['reservation_time'], $data['comment'], $data['user_id']);
-        header('location: /reservering');
+        if ($this->model('ReserveringModel')->CreateReservation($data['amount_of_people'], $data['amount_of_children'], $data['reservation_time'], $data['comment'], $data['user_id'])) {
+            die('Something went wrong');
+        } else {
+            header('location: /reservering');
+        } 
     }
 }
