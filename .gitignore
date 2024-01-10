@@ -1,4 +1,4 @@
 node_modules
 app/config/config.php
-public/css/style.css
-public/css/style.css.map
+public/css/*.css
+public/css/*.css.map

@@ -1,0 +1,80 @@
+// echo "<h1>Latest Reservation</h1>";
+// echo "<table class='table'>";
+// echo "<thead>";
+// echo "<tr>";
+// echo "<th scope='col'>#</th>";
+// echo "<th scope='col'>Amount of People</th>";
+// echo "<th scope='col'>Amount of Children</th>";
+// echo "<th scope='col'>Reservation Time</th>";
+// echo "<th scope='col'>Comment</th>";
+// echo "<th scope='col'>User ID</th>";
+// echo "<th scope='col'>Delete</th>";
+// echo "</tr>";
+// echo "</thead>";
+// echo "<tbody>";
+// foreach ($data['reservation'] as $reservation) {
+//     echo "<tr>";
+//     echo "<th scope='row'>" . $reservation->Id . "</th>";
+//     echo "<td>" . $reservation->AmountOfPeople . "</td>";
+//     echo "<td>" . $reservation->AmountOfChildren . "</td>";
+//     echo "<td>" . $reservation->ReservationTime . "</td>";
+//     echo "<td>" . $reservation->Comment . "</td>";
+//     echo "<td>" . $reservation->user_id . "</td>";
+//     echo "<td><a href='/reservering/delete/" . $reservation->user_id . "' class='btn btn-danger'>Delete</a></td>";
+//     echo "</tr>";
+// }
+// echo "</tbody>";
+// echo "</table>";
+
+table .table {
+    width: 100%;
+    max-width: 100%;
+    margin-bottom: 1rem;
+    background-color: transparent;
+
+    thead {
+        th {
+            vertical-align: bottom;
+            border-bottom: 2px solid #dee2e6;
+        }
+    }
+
+    tbody {
+        tr {
+            th {
+                vertical-align: top;
+                border-top: 1px solid #dee2e6;
+            }
+        }
+    }
+
+    th,
+    td {
+        padding: 0.75rem;
+        vertical-align: top;
+        border-top: 1px solid #dee2e6;
+    }
+
+    thead th {
+        vertical-align: bottom;
+        border-bottom: 2px solid #dee2e6;
+    }
+
+    tbody + tbody {
+        border-top: 2px solid #dee2e6;
+    }
+
+    .table {
+        background-color: #fff;
+
+        th,
+        td {
+            border: 1px solid #dee2e6;
+        }
+
+        th {
+            background-color: #e9ecef;
+        }
+    }
+    
+}

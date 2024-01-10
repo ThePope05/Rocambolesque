@@ -37,7 +37,7 @@
                                     echo "<tbody>";
                                     foreach ($data['reservation'] as $reservation) {
                                         echo "<tr>";
-                                        echo "<th scope='row'>" . $reservation->id . "</th>";
+                                        echo "<th scope='row'>" . $reservation->Id . "</th>";
                                         echo "<td>" . $reservation->AmountOfPeople . "</td>";
                                         echo "<td>" . $reservation->AmountOfChildren . "</td>";
                                         echo "<td>" . $reservation->ReservationTime . "</td>";
