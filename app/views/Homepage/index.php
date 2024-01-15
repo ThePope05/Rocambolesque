@@ -13,17 +13,17 @@
     </div>
     <div id="Boxcontainer">
         <h3 class="Boxtitle">Menu</h3>
-        <p>Bekijk ons menu <br> hier 
-        <br> <span id="arrow-icon" class="material-symbols-rounded">arrow_downward</span>
+        <p>Bekijk ons menu <br> hier
+            <br> <span id="arrow-icon" class="material-symbols-rounded">arrow_downward</span>
         </p>
         <a id="homeButtons" href="/menu">Menu</a>
     </div>
     <div id="BoxcontainerMargin">
         <h3 class="Boxtitle">Reservering</h3>
-        <p>U kunt hier <br> reserveren 
-        <br> <span id="arrow-icon" class="material-symbols-rounded">arrow_downward</span>
+        <p>U kunt hier <br> reserveren
+            <br> <span id="arrow-icon" class="material-symbols-rounded">arrow_downward</span>
         </p>
-        <a id="homeButtons" href="/reservering">Reservering</a>
+        <a id="homeButtons" href="/reservering/createpage">Reservering</a>
     </div>
 </body>
 
