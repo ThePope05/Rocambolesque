@@ -30,7 +30,7 @@ class Reservering extends BaseController
         if ($this->model('ReserveringModel')->DeleteReservation($id)) {
             die('Something went wrong');
         } else {
-            header('location: /reservering');
+            header('location: /reservering/index');
         }
     }
 
@@ -55,7 +55,7 @@ class Reservering extends BaseController
             ];
 
             $this->model('ReserveringModel')->CreateReservation($data['amount_of_people'], $data['amount_of_children'], $data['reservation_time'], $data['comment'], $data['user_id']);
-            $this->view('User/dashboard', $data);
+            $this->index();
         } else {
             $data = [
                 'reservation' => [
