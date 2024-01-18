@@ -66,14 +66,20 @@ class User extends BaseController
         }
     }
 
-    public function tempUserPage()
+    public function tempUserPage($amount_of_people, $amount_of_children, $date_time, $comment = "")
     {
         $data = [
             'title' => 'Login',
             'phone_nr' => '',
             'name' => '',
             'phone_nr_err' => '',
-            'name_err' => ''
+            'name_err' => '',
+            'reservation' => [
+                'amount_of_people' => $amount_of_people,
+                'amount_of_children' => $amount_of_children,
+                'date_time' => $date_time,
+                'comment' => $comment
+            ]
         ];
         $this->view('/User/tempUserSignUp', $data);
     }
@@ -85,7 +91,13 @@ class User extends BaseController
             'phone_nr' => $_POST['phone_nr'],
             'name' => $_POST['name'],
             'phone_nr_err' => '',
-            'name_err' => ''
+            'name_err' => '',
+            'reservation' => [
+                'amount_of_people' => $_POST['amount_of_people'],
+                'amount_of_children' => $_POST['amount_of_children'],
+                'date_time' => $_POST['date_time'],
+                'comment' => $_POST['comment']
+            ]
         ];
 
         $fullname = explode(" ", $_POST['name']);
@@ -105,8 +117,13 @@ class User extends BaseController
             return $this->view('/User/tempUserSignUp', $data);
         }
 
+        if (!$this->model('UserModel')->isFreeUser("", $_POST['phone_nr'])) {
+            $data['phone_nr_err'] = 'Phone number already in use';
+            return $this->view('/User/tempUserSignUp', $data);
+        }
+
         $this->model('UserModel')->tempUserSignUp($_POST['phone_nr'], $fullname);
-        $this->view('/User/tempUserPage', $data);
+        $this->view('/Homepage/index', $data);
     }
 
     public function signUpPage()

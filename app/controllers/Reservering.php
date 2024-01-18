@@ -66,7 +66,13 @@ class Reservering extends BaseController
                 ]
             ];
 
-            $controller = "/User/tempUserSignUp";
+            $url = 'User/tempUserPage';
+
+            foreach ($data['reservation'] as $key => $value) {
+                $url .= '/' . $value;
+            }
+
+            header('location: /' . $url);
         }
     }
 }

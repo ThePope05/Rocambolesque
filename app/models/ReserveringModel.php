@@ -24,9 +24,12 @@ class ReserveringModel
 
     public function fetchreservering(int $id)
     {
-        $this->db->query("SELECT * FROM reservations WHERE user_id = :id");
-
-        $this->db->bind(':id', $id);
+        if ($id != 1) {
+            $this->db->query("SELECT * FROM reservations WHERE user_id = :id");
+            $this->db->bind(':id', $id);
+        } else {
+            $this->db->query("SELECT * FROM reservations");
+        }
 
         return $this->db->execute(true);
     }
