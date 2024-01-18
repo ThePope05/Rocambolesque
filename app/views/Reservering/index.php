@@ -36,15 +36,7 @@
                                 if (count($data['reservation']) > 0) {
                                     echo "<tbody>";
                                     foreach ($data['reservation'] as $reservation) {
-                                        echo "<tr>";
-                                        echo "<th scope='row'>" . $reservation->Id . "</th>";
-                                        echo "<td>" . $reservation->AmountOfPeople . "</td>";
-                                        echo "<td>" . $reservation->AmountOfChildren . "</td>";
-                                        echo "<td>" . $reservation->ReservationTime . "</td>";
-                                        echo "<td>" . $reservation->Comment . "</td>";
-                                        echo "<td>" . $reservation->user_id . "</td>";
-                                        echo "<td><a href='/reservering/delete/" . $reservation->Id . "' class='btn btn-danger'>Delete</a></td>";
-                                        echo "</tr>";
+                                        $this->components('tableRow', $componentData['reservation'] = $reservation);
                                     }
                                     echo "</tbody>";
                                     echo "</table>";

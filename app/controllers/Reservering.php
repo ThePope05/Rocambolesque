@@ -14,14 +14,7 @@ class Reservering extends BaseController
 
             $this->view('Reservering/index', $data);
         } else {
-            // show reservering page for guest users 
-            $reserveringModel = $this->model('ReserveringModel')->fetchreservering(0);
-            $data = [
-                'title' => 'Reservering',
-                'reservation' => $reserveringModel
-            ];
-
-            $this->view('Reservering/index', $data);
+            $this->view('Homepage/index');
         }
     }
 

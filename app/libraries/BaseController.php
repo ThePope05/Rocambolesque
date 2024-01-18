@@ -2,10 +2,10 @@
 
 class BaseController
 {
-    public function components($component)
+    public function components($component, $componentData = [])
     {
         if (file_exists('../app/views/components/' . $component . '.php')) {
-            require_once('../app/views/components/' . $component . '.php');
+            require('../app/views/components/' . $component . '.php');
         } else {
             echo 'This part does not exist';
         }
