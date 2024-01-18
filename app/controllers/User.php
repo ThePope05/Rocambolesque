@@ -8,9 +8,8 @@ class User extends BaseController
         //If the user is logged in redirect to the dashboard
         //else go to login page
         if (isset($_SESSION['user_id'])) {
-            //send to method not view
-            //else we have to double code
-            $this->dashboard();
+            //go to reservation page
+            header('location: /reservering/index');
         } else {
             $data = [
                 'title' => 'Login',
@@ -52,7 +51,7 @@ class User extends BaseController
                 //else send back to login page
                 if (!is_string($user) && !is_null($user)) {
                     $_SESSION['user_id'] = $user->Id;
-                    $this->dashboard();
+                    header('location: /reservering/index');
                 } else {
                     $data['password_err'] = "Email or password incorrect";
                     $this->view('/User/login', $data);
@@ -182,19 +181,5 @@ class User extends BaseController
         unset($_SESSION['user_id']);
         session_destroy();
         $this->index();
-    }
-
-    public function dashboard()
-    {
-        //double check if user is logged in because user can acces this url directly
-        //if not send back to index (login)
-        if (isset($_SESSION['user_id'])) {
-            $data = [
-                'title' => 'Dashboard'
-            ];
-            $this->view('/User/dashboard', $data);
-        } else {
-            $this->index();
-        }
     }
 }
