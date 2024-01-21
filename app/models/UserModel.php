@@ -9,6 +9,23 @@ class UserModel
         $this->db = new Database();
     }
 
+    public function getUserId(string $phone_nr)
+    {
+        $this->db->query("SELECT * FROM users WHERE number = :phone_nr");
+
+        $number = str_replace(" ", "", $phone_nr);
+        $number = str_replace("-", "", $number);
+        $this->db->bind(':phone_nr', $number);
+
+        $user = $this->db->execute(true);
+
+        if (isset($user[0])) {
+            return $user[0]->Id;
+        } else {
+            return false;
+        }
+    }
+
     public function login(string $email, string $password)
     {
         $this->db->query("SELECT * FROM users WHERE email = :email");

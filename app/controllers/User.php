@@ -123,7 +123,9 @@ class User extends BaseController
         }
 
         $this->model('UserModel')->tempUserSignUp($_POST['phone_nr'], $fullname);
-        $this->view('/Homepage/index', $data);
+        $this->model('ReserveringModel')->CreateReservation($data['reservation']['amount_of_people'], $data['reservation']['amount_of_children'], $data['reservation']['date_time'], $data['reservation']['comment'], $this->model('UserModel')->getUserId($_POST['phone_nr']));
+
+        header('location: /');
     }
 
     public function signUpPage()
