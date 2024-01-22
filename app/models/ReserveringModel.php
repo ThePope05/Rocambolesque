@@ -12,7 +12,7 @@ class ReserveringModel
     public function fetchreservering(int $id)
     {
         if ($id != 1) {
-            $this->db->query("SELECT * FROM reservations WHERE user_id = :id");
+            $this->db->query("SELECT * FROM reservations WHERE id = :id");
             $this->db->bind(':id', $id);
         } else {
             $this->db->query("SELECT * FROM reservations");
@@ -34,6 +34,19 @@ class ReserveringModel
         $this->db->bind(':ReservationTime', $reservationtime);
         $this->db->bind(':Comment', $comment);
         $this->db->bind(':user_id', $user_id);
+
+        return $this->db->execute();
+    }
+
+    public function UpdateReservation($id, $amountofpeople, $amountofchildren, $reservationtime, $comment)
+    {
+        $this->db->query("UPDATE reservations SET AmountOfPeople = :AmountOfPeople, AmountOfChildren = :AmountOfChildren, ReservationTime = :ReservationTime, Comment = :Comment WHERE id = :id");
+
+        $this->db->bind(':id', $id);
+        $this->db->bind(':AmountOfPeople', $amountofpeople);
+        $this->db->bind(':AmountOfChildren', $amountofchildren);
+        $this->db->bind(':ReservationTime', $reservationtime);
+        $this->db->bind(':Comment', $comment);
 
         return $this->db->execute();
     }

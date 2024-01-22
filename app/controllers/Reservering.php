@@ -61,4 +61,23 @@ class Reservering extends BaseController
             header('location: /' . $url);
         }
     }
+
+    public function updatePage($id)
+    {
+        $reservation = $this->model('ReserveringModel')->fetchreservering($id);
+
+        $data = [
+            'title' => 'Reservering',
+            'reservation' => $reservation[0]
+        ];
+
+        $this->view('Reservering/update', $data);
+    }
+
+    public function update()
+    {
+        $reservation = $this->model('ReserveringModel')->UpdateReservation($_POST['id'], $_POST['amount_of_people'], $_POST['amount_of_children'], $_POST['reservation_time'], $_POST['comment']);
+
+        $this->index();
+    }
 }
