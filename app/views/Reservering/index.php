@@ -12,10 +12,6 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    <?php if (isset($_SESSION['user_id'])) : ?>
-                        <a href="/reservering/createPage" class="btn btn-primary">Create Reservation</a>
-                    <?php endif; ?>
-
                     <!-- show latest reservation -->
                     <h1>Latest Reservation</h1>
                     <table class='table'>
@@ -39,7 +35,15 @@
                                         <td><?= $reservation->ReservationTime; ?></td>
                                         <td><?= $reservation->Comment; ?></td>
                                         <td><?= $reservation->user_id; ?></td>
-                                        <td><a href='/reservering/delete/<?= $reservation->Id ?>' class='btn btn-danger'>Delete</a></td>
+                                        <td><a href='/reservering/updatePage/<?= $reservation->Id ?>' class='btn btn-primary'>
+                                                <span class="material-symbols-outlined">
+                                                    edit
+                                                </span>
+                                            </a></td>
+                                        <td><a href='/reservering/delete/<?= $reservation->Id ?>' class='btn btn-danger'>
+                                                <span class="material-symbols-outlined">
+                                                    delete
+                                                </span></a></td>
                                     </tr>
                                 <?php endforeach; ?>
                             <?php else : ?>
@@ -50,6 +54,14 @@
                                     <td>were found</td>
                                 </tr>
                             <?php endif; ?>
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <th><a href="/reservering/createPage"><span class="material-symbols-outlined">
+                                            add
+                                        </span></a></th>
+                            </tr>
                         </tbody>
                     </table>
                 </div>
