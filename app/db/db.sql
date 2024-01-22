@@ -43,19 +43,19 @@ CREATE TABLE IF NOT EXISTS `users` (
   UNIQUE KEY `Email` (`Email`) USING BTREE
 ) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 
-CREATE TABLE IF NOT EXISTS `foodTypes` (
+CREATE TABLE IF NOT EXISTS `categorys` (
   `Id` int NOT NULL AUTO_INCREMENT,
   `Name` varchar(50) NOT NULL,
   PRIMARY KEY (`Id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 
-CREATE TABLE IF NOT EXISTS `food` (
+CREATE TABLE IF NOT EXISTS `foods` (
   `Id` int NOT NULL AUTO_INCREMENT,
   `Name` varchar(50) NOT NULL,
   `Description` longtext NOT NULL,
-  `foodType_id` int NOT NULL,
+  `CategoryId` int NOT NULL,
   PRIMARY KEY (`Id`),
-  KEY `foodType_id` (`foodType_id`)
+  KEY `CategoryId` (`CategoryId`)
 ) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 
 -- Data exporteren was gedeselecteerd
@@ -63,13 +63,13 @@ CREATE TABLE IF NOT EXISTS `food` (
 INSERT INTO `users` (`Id`, `Password`, `Email`, `Number`, `Firstname`, `Lastname`) VALUES
   (1, '8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918', 'example@mboutrecht.nl', '0612345678', 'admin', 'admin');
 
-INSERT INTO `foodTypes` (`Id`, `Name`) VALUES
+INSERT INTO `categorys` (`Id`, `Name`) VALUES
   (1, 'Voorgerecht'),
   (2, 'Hoofdgerecht'),
   (3, 'Nagerecht'),
   (4, 'Kinder menu');
 
-INSERT INTO `food` (`Name`, `Description`, `foodType_id`) VALUES
+INSERT INTO `foods` (`Name`, `Description`, `CategoryId`) VALUES
   ("Soupe à l'Oignon Gratinee", 'Traditionele uiensoep, gegarneerd met gegratineerde kaas en stokbrood.', 1),
   ("Salade de Chèvre Chaud", "Warme geitenkaassalade met honing, noten en frambozendressing", 1),
   ("Coquilles Saint-Jacques", 'Gebakken sint-jakobsschelpen met een saus van boter en witte wijn', 1),
