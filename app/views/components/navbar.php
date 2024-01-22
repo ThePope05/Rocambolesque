@@ -4,7 +4,7 @@
         <a class='navButton' href='/Homepage/contact'>Contact</a>
         <?php if (isset($_SESSION['user_id'])) : ?>
             <?php if ($_SESSION['user_id'] == 1) : ?>
-                <a class='navButton' href='/Menu/editPage'>Edit Menu</a>
+                <a class='navButton' href='/Menu/index/true'>Edit Menu</a>
             <?php endif; ?>
             <a class='navButton' href='/Reservering/'>Reservations</a>
             <a class='navButton' href='/User/logout'>Logout</a>
