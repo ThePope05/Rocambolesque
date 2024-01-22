@@ -1,0 +1,4 @@
+node_modules
+app/config/config.php
+public/css/*.css
+public/css/*.css.map

@@ -2,16 +2,30 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="<?= URLROOT; ?>/css/style.css">
+    <?php $this->components('headLinks'); ?>
     <title>Home screen</title>
 </head>
 
 <body>
-
-    <h2><?= $data['title']; ?></h2>
+    <?php $this->components('navbar'); ?>
+    <div id="Boxcontainer">
+        <h3 class="Boxtitle">Menu</h3>
+        <p>Bekijk ons menu <br> hier
+            <br> <span class="material-symbols-outlined">
+                arrow_downward
+            </span>
+        </p>
+        <a id="homeButtons" href="/menu">Menu</a>
+    </div>
+    <div id="BoxcontainerMargin">
+        <h3 class="Boxtitle">Reservering</h3>
+        <p>U kunt hier <br> reserveren
+            <br> <span class="material-symbols-outlined">
+                arrow_downward
+            </span>
+        </p>
+        <a id="homeButtons" href="/reservering/createpage">Reservering</a>
+    </div>
 </body>
 
-</html>
+<?php $this->components('footer'); ?>

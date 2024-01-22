@@ -7,7 +7,7 @@ class Database
 
     public function __construct()
     {
-        $conn = 'mysql:host=' . DB_HOST . ';dbname='. DB_NAME . ';charset=UTF8';
+        $conn = 'mysql:host=' . DB_HOST . ';dbname=' . DB_NAME . ';charset=UTF8';
 
         try {
             $this->dbHandler = new PDO($conn, DB_USER, DB_PASS);
@@ -15,10 +15,9 @@ class Database
             if ($this->dbHandler) {
                 // echo "Verbinding met de database is gelukt";
             } else {
-                echo "Interne server-error";
+                echo "Internal server error";
             }
-
-        } catch(PDOException $e) {
+        } catch (PDOException $e) {
             echo $e->getMessage();
         }
     }
@@ -28,15 +27,52 @@ class Database
         $this->statement = $this->dbHandler->prepare($sql);
     }
 
-    public function excecuteWithoutReturn(){
-        $this->statement->execute();
+    public function bind($parameter, $value, $type = null)
+    {
+        switch (is_null($type)) {
+            case is_int($value):
+                $type = PDO::PARAM_INT;
+                break;
+            case is_bool($value):
+                $type = PDO::PARAM_BOOL;
+                break;
+            case is_null($value):
+                $type = PDO::PARAM_NULL;
+                break;
+            default:
+                $type = PDO::PARAM_STR;
+        }
+
+        $this->statement->bindValue($parameter, $value, $type);
     }
 
-    public function resultSet()
+    public function execute(bool $return = false)
     {
         $this->statement->execute();
-        return $this->statement->fetchAll(PDO::FETCH_OBJ);
+
+        if ($return) {
+            return $this->statement->fetchAll(PDO::FETCH_OBJ);
+        }
     }
 
+    public function valueExists(string $table, string $column, string $value)
+    {
+        $this->query("SELECT :column FROM :table WHERE :column = :value");
 
+        if ($this->statement) {
+            $this->bind(':column', $column);
+            $this->bind(':table', $table);
+            $this->bind(':value', $value);
+
+            $result = $this->execute();
+
+            if (count($result) > 0) {
+                return true;
+            } else {
+                return false;
+            }
+        } else {
+            return false;
+        }
+    }
 }
