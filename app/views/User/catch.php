@@ -14,4 +14,4 @@
 
 </body>
 
-</html>
+<?php $this->components('footer'); ?>

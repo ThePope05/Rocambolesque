@@ -8,9 +8,6 @@
 
 <body>
     <?php $this->components('navbar'); ?>
-    <div id="imgContainer">
-        <img id="background-img" src="img/Restaurant1.jpg">
-    </div>
     <div id="Boxcontainer">
         <h3 class="Boxtitle">Menu</h3>
         <p>Bekijk ons menu <br> hier
@@ -31,4 +28,4 @@
     </div>
 </body>
 
-</html>
+<?php $this->components('footer'); ?>

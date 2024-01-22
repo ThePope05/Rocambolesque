@@ -1,14 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <?php $this->components('headLinks') ?>
     <title>Document</title>
 </head>
+
 <body>
     <?php $this->components('navbar') ?>
 
     <div class="menu">
-    <div class="menu-column voorgerecht">
+        <div class="menu-column voorgerecht">
             <h2>Voorgerecht</h2>
             <div class="Soupe">
                 <h4>Soupe à l'Oignon Gratinee</h4>
@@ -85,4 +87,5 @@
         </div>
     </div>
 </body>
-</html>
+
+<?php $this->components('footer'); ?>
