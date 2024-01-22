@@ -7,7 +7,16 @@ class Homepage extends BaseController
         $data = [
             'title' => 'Homepage'
         ];
-    
+
         $this->view('Homepage/index', $data);
+    }
+
+    public function contact()
+    {
+        $data = [
+            'title' => 'Contact'
+        ];
+
+        $this->view('Homepage/contact', $data);
     }
 }
