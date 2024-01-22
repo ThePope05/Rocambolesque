@@ -11,4 +11,4 @@
     <h1>Dashboard info</h1>
 </body>
 
-</html>
+<?php $this->components('footer'); ?>

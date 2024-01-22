@@ -14,14 +14,7 @@ class Reservering extends BaseController
 
             $this->view('Reservering/index', $data);
         } else {
-            // show reservering page for guest users 
-            $reserveringModel = $this->model('ReserveringModel')->fetchreservering(0);
-            $data = [
-                'title' => 'Reservering',
-                'reservation' => $reserveringModel
-            ];
-
-            $this->view('Reservering/index', $data);
+            $this->view('Homepage/index');
         }
     }
 
@@ -45,16 +38,9 @@ class Reservering extends BaseController
     public function create()
     {
         if (isset($_SESSION['user_id'])) {
-            $data = [
-                'title' => 'Reservering',
-                'amount_of_people' => $_POST['amount_of_people'],
-                'amount_of_children' => $_POST['amount_of_children'],
-                'reservation_time' => $_POST['reservation_time'],
-                'comment' => $_POST['comment'],
-                'user_id' => $_SESSION['user_id']
-            ];
 
-            $this->model('ReserveringModel')->CreateReservation($data['amount_of_people'], $data['amount_of_children'], $data['reservation_time'], $data['comment'], $data['user_id']);
+            $reservation = $this->model('ReserveringModel')->CreateReservation($_POST['amount_of_people'], $_POST['amount_of_children'], $_POST['reservation_time'], $_POST['comment'], $_SESSION['user_id']);
+
             $this->index();
         } else {
             $data = [
@@ -66,7 +52,32 @@ class Reservering extends BaseController
                 ]
             ];
 
-            $controller = "/User/tempUserSignUp";
+            $url = 'User/tempUserPage';
+
+            foreach ($data['reservation'] as $key => $value) {
+                $url .= '/' . $value;
+            }
+
+            header('location: /' . $url);
         }
+    }
+
+    public function updatePage($id)
+    {
+        $reservation = $this->model('ReserveringModel')->fetchreservering($id);
+
+        $data = [
+            'title' => 'Reservering',
+            'reservation' => $reservation[0]
+        ];
+
+        $this->view('Reservering/update', $data);
+    }
+
+    public function update()
+    {
+        $reservation = $this->model('ReserveringModel')->UpdateReservation($_POST['id'], $_POST['amount_of_people'], $_POST['amount_of_children'], $_POST['reservation_time'], $_POST['comment']);
+
+        $this->index();
     }
 }
