@@ -64,7 +64,6 @@ body {
         object-fit: cover;
         object-position: bottom;
         z-index: -1;
-        border-bottom: var(--medium-brown) 5px solid;
         #background-img {
             width: 100vw;
             height: 100vh;
@@ -136,5 +135,14 @@ body {
             justify-content: center;
             border-radius: 20px;
         }
+    }
+
+    > footer {
+        background-color: white;
+        border-top: var(--medium-brown) 5px solid;
+        width: 100%;
+        height: 5rem;
+        position: fixed;
+        bottom: 0;
     }
 }
