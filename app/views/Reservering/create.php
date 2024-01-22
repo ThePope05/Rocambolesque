@@ -8,36 +8,48 @@
 
 <body>
         <?php $this->components('navbar'); ?>
+        <img src="/public/img/login.png" alt="" class="background">
         <div class="content">
             <div class="container">
-                <div class="row">
-                    <div class="col-md-12">
+                <div class="reservering">
+                    <div class="reservering-form">
                         <form action="/reservering/create" method="post">
-                             <br> 
-                             <br>
-                             <br>
-                             <label for="amount_of_people">Amount of People:</label>
-                            <input type="number" name="amount_of_people" id="amount_of_people">
+                        <h1><?= $data['title'] ?></h1>
+                            <div class="reservering-form-group">
+                                <div>
+                                    <div>
+                                    <label for="reservation_time">Tijdstip</label>
+                                    </div>
+                                    <input type="datetime-local" name="reservation_time" id="reservation_time">
+                                </div>
 
-                            <label for="amount_of_children">Amount of Children:</label>
-                            <input type="number" name="amount_of_children" id="amount_of_children">
+                                <div>
+                                    <div>
+                                    <label for="amount_of_children">Amount of Children:</label>
+                                    </div>
+                                    <input type="number" name="amount_of_children" id="amount_of_children">
+                                </div>
 
-                            <label for="reservation_time">Reservation Time:</label>
-                             <!-- date and time picker -->
-                            <input type="datetime-local" name="reservation_time" id="reservation_time">
-                            
+                                <div>
+                                    <div>
+                                    <label for="amount_of_people">Amount of People:</label>
+                                    </div>
+                                    <input type="number" name="amount_of_people" id="amount_of_people">
+                                </div>
 
-                            <label for="comment">Comment:</label>
-                            <textarea name="comment" id="comment"></textarea>
+                                <div>
+                                    <div>
+                                    <label for="comment">Comment:</label>
+                                    </div>
+                                    <textarea name="comment" id="comment"></textarea>
+                                </div>
 
-
-                            <button type="submit" class="btn btn-primary">Create</button>
-                            
+                                <button type="submit" class="btn btn-primary">Create</button>
+                            </div>
                         </form>
                     </div>
                 </div>
             </div>
         </div>
 </body>
-
 </html>

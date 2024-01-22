@@ -83,9 +83,7 @@
                         }
                     }
                     ?>
-                </div>
-            </div>
-        </div>
+        <?php $this->components('navbar'); ?>
     </div>
 </body>
 
