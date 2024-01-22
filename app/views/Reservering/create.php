@@ -18,9 +18,9 @@
                         <div class="reservering-form-group">
                             <div>
                                 <div>
-                                    <label for="reservation_time">Tijdstip</label>
+                                    <label for="amount_of_people">Amount of People:</label>
                                 </div>
-                                <input type="datetime-local" name="reservation_time" id="reservation_time">
+                                <input type="number" name="amount_of_people" id="amount_of_people">
                             </div>
 
                             <div>
@@ -32,9 +32,9 @@
 
                             <div>
                                 <div>
-                                    <label for="amount_of_people">Amount of People:</label>
+                                    <label for="reservation_time">Tijdstip</label>
                                 </div>
-                                <input type="number" name="amount_of_people" id="amount_of_people">
+                                <input type="datetime-local" name="reservation_time" id="reservation_time">
                             </div>
 
                             <div>

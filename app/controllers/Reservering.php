@@ -6,7 +6,7 @@ class Reservering extends BaseController
     public function index()
     {
         if (isset($_SESSION['user_id'])) {
-            $reserveringModel = $this->model('ReserveringModel')->fetchreservering($_SESSION['user_id']);
+            $reserveringModel = $this->model('ReserveringModel')->GetReservationsByUserId($_SESSION['user_id']);
             $data = [
                 'title' => 'Reservering',
                 'reservation' => $reserveringModel
@@ -64,11 +64,14 @@ class Reservering extends BaseController
 
     public function updatePage($id)
     {
-        $reservation = $this->model('ReserveringModel')->fetchreservering($id);
+        $reservation = $this->model('ReserveringModel')->GetReservationById($id);
+
+        // var_dump($reservation);
+        // exit;
 
         $data = [
             'title' => 'Reservering',
-            'reservation' => $reservation[0]
+            'reservation' => $reservation
         ];
 
         $this->view('Reservering/update', $data);

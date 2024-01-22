@@ -4,24 +4,42 @@ class Menu extends BaseController
 {
     public function index(bool $editMode = false)
     {
-        $data = [
-            'title' => 'Menu',
-            'menu' => $this->getMenus(),
-            'editMode' => $editMode
-        ];
+        if ($editMode && isset($_SESSION['user_id']) && $_SESSION['user_id'] == 1) {
+            $data = [
+                'title' => 'Menu',
+                'menu' => $this->getMenus(),
+                'editMode' => $editMode
+            ];
 
-        $this->view('Menu/index', $data);
+            $this->view('Menu/index', $data);
+        } else {
+            $data = [
+                'title' => 'Menu',
+                'menu' => $this->getMenus()
+            ];
+
+            $this->view('Menu/index', $data);
+        }
     }
 
     public function editPage(int $id)
     {
-        $data = [
-            'title' => 'Edit Menu',
-            'menu' => $this->getMenuItem($id),
-            'categorys' => $this->model('MenuModel')->getCategorys()
-        ];
+        if (isset($_SESSION['user_id']) && $_SESSION['user_id'] == 1) {
+            $data = [
+                'title' => 'Edit Menu',
+                'menu' => $this->getMenuItem($id),
+                'categorys' => $this->model('MenuModel')->getCategorys()
+            ];
 
-        $this->view('Menu/form', $data);
+            $this->view('Menu/form', $data);
+        } else {
+            $data = [
+                'title' => 'Menu',
+                'menu' => $this->getMenus()
+            ];
+
+            $this->view('Menu/index', $data);
+        }
     }
 
     public function edit()
@@ -41,12 +59,21 @@ class Menu extends BaseController
 
     public function createPage()
     {
-        $data = [
-            'title' => 'Create Menu',
-            'categorys' => $this->model('MenuModel')->getCategorys()
-        ];
+        if (isset($_SESSION['user_id']) && $_SESSION['user_id'] == 1) {
+            $data = [
+                'title' => 'Create Menu',
+                'categorys' => $this->model('MenuModel')->getCategorys()
+            ];
 
-        $this->view('Menu/form', $data);
+            $this->view('Menu/form', $data);
+        } else {
+            $data = [
+                'title' => 'Menu',
+                'menu' => $this->getMenus()
+            ];
+
+            $this->view('Menu/index', $data);
+        }
     }
 
     public function create()

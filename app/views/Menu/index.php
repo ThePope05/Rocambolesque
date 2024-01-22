@@ -17,7 +17,7 @@
                     <div class="<?= $menuItem->Name ?>">
                         <h4><?= $menuItem->Name ?></h4>
                         <p><?= $menuItem->Description ?></p>
-                        <?php if ($data['editMode']) : ?>
+                        <?php if (isset($data['editMode']) && $data['editMode']) : ?>
                             <a href="/Menu/editPage/<?= $menuItem->Id ?>">Edit</a>
                             <a href="/Menu/delete/<?= $menuItem->Id ?>">Delete</a>
                         <?php endif; ?>

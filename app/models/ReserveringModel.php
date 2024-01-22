@@ -9,16 +9,24 @@ class ReserveringModel
         $this->db = new Database();
     }
 
-    public function fetchreservering(int $id)
+    public function GetReservationsByUserId(int $id)
     {
         if ($id != 1) {
-            $this->db->query("SELECT * FROM reservations WHERE id = :id");
+            $this->db->query("SELECT * FROM reservations WHERE User_Id = :id");
             $this->db->bind(':id', $id);
         } else {
             $this->db->query("SELECT * FROM reservations");
         }
 
         return $this->db->execute(true);
+    }
+
+    public function GetReservationById(int $id)
+    {
+        $this->db->query("SELECT * FROM reservations WHERE id = :id");
+        $this->db->bind(':id', $id);
+
+        return $this->db->execute(true)[0];
     }
 
     public function CreateReservation($amountofpeople, $amountofchildren, $reservationtime, $comment, $user_id)

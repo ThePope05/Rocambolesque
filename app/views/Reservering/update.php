@@ -8,33 +8,46 @@
 
 <body>
     <?php $this->components('navbar'); ?>
+    <img src="/public/img/login.png" alt="" class="background">
     <div class="content">
         <div class="container">
-            <div class="row">
-                <div class="col-md-12">
+            <div class="reservering">
+                <div class="reservering-form">
                     <form action="/reservering/update" method="post">
-                        <br>
-                        <br>
-                        <br>
-                        <input type="hidden" name="id" value="<?= $data['reservation']->Id ?>">
+                        <h1><?= $data['title'] ?></h1>
+                        <div class="reservering-form-group">
+                            <input type="hidden" name="id" value="<?= $data['reservation']->Id ?>">
 
-                        <label for="amount_of_people">Amount of People:</label>
-                        <input type="number" name="amount_of_people" id="amount_of_people" value="<?= $data['reservation']->AmountOfPeople ?>">
+                            <div>
+                                <div>
+                                    <label for="amount_of_people">Amount of People:</label>
+                                </div>
+                                <input type="number" name="amount_of_people" id="amount_of_people" value=<?= $data['reservation']->AmountOfPeople ?>>
+                            </div>
 
-                        <label for="amount_of_children">Amount of Children:</label>
-                        <input type="number" name="amount_of_children" id="amount_of_children" value="<?= $data['reservation']->AmountOfChildren ?>">
+                            <div>
+                                <div>
+                                    <label for="amount_of_children">Amount of Children:</label>
+                                </div>
+                                <input type="number" name="amount_of_children" id="amount_of_children" value=<?= $data['reservation']->AmountOfChildren ?>>
+                            </div>
 
-                        <label for="reservation_time">Reservation Time:</label>
-                        <!-- date and time picker -->
-                        <input type="datetime-local" name="reservation_time" id="reservation_time" value="<?= $data['reservation']->ReservationTime ?>">
+                            <div>
+                                <div>
+                                    <label for="reservation_time">Tijdstip</label>
+                                </div>
+                                <input type="datetime-local" name="reservation_time" id="reservation_time" value=<?= date("Y-m-d\TH:i", strtotime($data['reservation']->ReservationTime)) ?>>
+                            </div>
 
+                            <div>
+                                <div>
+                                    <label for="comment">Comment:</label>
+                                </div>
+                                <textarea name="comment" id="comment" value="<?= $data['reservation']->Comment ?>"><?= $data['reservation']->Comment ?></textarea>
+                            </div>
 
-                        <label for="comment">Comment:</label>
-                        <textarea name="comment" id="comment"><?= $data['reservation']->Comment ?></textarea>
-
-
-                        <button type="submit" class="btn btn-primary">Create</button>
-
+                            <button type="submit" class="btn btn-primary">Create</button>
+                        </div>
                     </form>
                 </div>
             </div>
