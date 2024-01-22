@@ -1,0 +1,41 @@
+#ContactC {
+  background-color: white;
+  border: 4px solid;
+  border-color: var(--medium-brown);
+  width: 90%;
+  height: 90%;
+  margin-top: 6%;
+  border-radius: 30px;
+  display: flex;
+  flex-direction: row;
+}
+
+h3 {
+  color: var(--teal);
+}
+
+.times {
+  margin-left: 2rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  padding: 2rem;
+  text-align: center;
+  border: 3px solid;
+  border-color: var(--medium-brown);
+  border-radius: 15px;
+  background-color: rgb(240, 240, 240);
+}
+
+#Info {
+  width: 50%;
+  text-align: center;
+  margin-left: 2rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  border: 3px solid;
+  padding: 0.5rem 1rem 0rem 1rem;
+  border-color: var(--medium-brown);
+  border-radius: 15px;
+  background-color: rgb(240, 240, 240);
+  margin-right: 2rem;
+}
