@@ -30,6 +30,12 @@
                         <?php endif; ?>
                     </div>
                 <?php endforeach; ?>
+                <?php if (isset($data['editMode']) && $data['editMode']) : ?>
+                    <a href="/Menu/createPage/<?= $menu->Id ?>">
+                        <span class="material-symbols-outlined">
+                            add
+                        </span></a>
+                <?php endif; ?>
             </div>
         <?php endforeach; ?>
     </div>
