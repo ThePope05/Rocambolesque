@@ -20,7 +20,12 @@
     > h1 {
         font-size: 3rem;
         font-weight: 700;
-        transform: translateY(4.8rem);
+        //transform: translateY(4.8rem);
+        background-color: white;
+        padding: 0 1rem;
+        border-radius: 1rem 1rem 0 0;
+        border: solid #a6633c 5px;
+        border-bottom: none;
     }
 
     > table {
@@ -37,15 +42,17 @@
         flex-direction: column;
         justify-content: flex-start;
 
-        > thead,
-        > tbody {
+        overflow-y: scroll;
+
+        tr {
             width: 100%;
 
-            > tr {
-                width: 100%;
-
-                display: flex;
-                justify-content: space-between;
+            // display: flex;
+            // justify-content: space-between;
+            > td,
+            th {
+                border: solid #000 1px;
+                padding: 0.1rem;
             }
         }
     }

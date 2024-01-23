@@ -123,7 +123,9 @@ class User extends BaseController
         }
 
         $this->model('UserModel')->tempUserSignUp($_POST['phone_nr'], $fullname);
-        $this->model('ReserveringModel')->CreateReservation($data['reservation']['amount_of_people'], $data['reservation']['amount_of_children'], $data['reservation']['date_time'], $data['reservation']['comment'], $this->model('UserModel')->getUserId($_POST['phone_nr']));
+
+        $comment = str_replace("%20", " ", $_POST['comment']);
+        $this->model('ReserveringModel')->CreateReservation($data['reservation']['amount_of_people'], $data['reservation']['amount_of_children'], $data['reservation']['date_time'], $comment, $this->model('UserModel')->getUserId($_POST['phone_nr']));
 
         header('location: /');
     }

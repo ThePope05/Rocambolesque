@@ -11,18 +11,24 @@
 
     <div class="menu">
         <?php foreach ($data['menu'] as $menu) : ?>
-            <div class="menu-column <?= $menu->Name ?>">
+            <div class="menu-part <?= $menu->Name ?>">
                 <h2><?= $menu->Name ?></h2>
                 <?php foreach ($menu->menuItems as $menuItem) : ?>
+                    <hr>
                     <div class="<?= $menuItem->Name ?>">
                         <h4><?= $menuItem->Name ?></h4>
                         <p><?= $menuItem->Description ?></p>
                         <?php if (isset($data['editMode']) && $data['editMode']) : ?>
-                            <a href="/Menu/editPage/<?= $menuItem->Id ?>">Edit</a>
-                            <a href="/Menu/delete/<?= $menuItem->Id ?>">Delete</a>
+                            <a href="/Menu/editPage/<?= $menuItem->Id ?>">
+                                <span class="material-symbols-outlined">
+                                    edit
+                                </span></a>
+                            <a href="/Menu/delete/<?= $menuItem->Id ?>">
+                                <span class="material-symbols-outlined">
+                                    delete
+                                </span></a>
                         <?php endif; ?>
                     </div>
-                    <hr>
                 <?php endforeach; ?>
             </div>
         <?php endforeach; ?>
